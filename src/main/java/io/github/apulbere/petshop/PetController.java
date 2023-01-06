@@ -18,7 +18,7 @@ public class PetController {
     private final PetRepository petRepository;
 
     @GetMapping("/pets")
-    List<PetRecord> search(@RequestParam PetCriteria criteria, Pageable page) {
+    List<PetRecord> search(PetCriteria criteria, Pageable page) {
         var predicate = criteria.id.match(pet.id)
                 .and(criteria.born.match(pet.birthdate))
                 .and(criteria.nickname.match(pet.name))
